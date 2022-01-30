@@ -18,13 +18,13 @@ Table.init(
                 key: 'id'
             }
         },
-        reservation_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'reservation',
-                key: 'id'
-            }
-        }
+        // reservation_id: {
+        //     type: DataTypes.INTEGER,
+        //     references: {
+        //         model: 'reservation',
+        //         key: 'id'
+        //     }
+        // }
     },
     {
         sequelize,
