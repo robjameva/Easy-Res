@@ -11,13 +11,6 @@ Restaurant_table.init(
             primaryKey: true,
             autoIncrement: true
         },
-        user_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'user',
-                key: 'id'
-            }
-        },
         restaurant_id: {
             type: DataTypes.INTEGER,
             references: {

@@ -22,7 +22,7 @@ VALUES
 ('Roomm', '74971 Straubel Crossing', '337-470-8807', 12, 11, 'https://opensource.org');
 
 
-INSERT INTO restaurant_table (user_id)
+INSERT INTO restaurant_table (restaurant_id)
 VALUES
 (1),
 (1),
