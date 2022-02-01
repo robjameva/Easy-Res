@@ -14,7 +14,7 @@ Reservation.init(
         table_id: {
             type: DataTypes.INTEGER,
             references: {
-                model: 'table',
+                model: 'restaurant_table',
                 key: 'id'
             }
         },
@@ -120,11 +120,7 @@ Reservation.init(
         eleven_pm: {
             type: DataTypes.TINYINT,
             defaultValue: 0
-        },
-        twelve_pm: {
-            type: DataTypes.TINYINT,
-            defaultValue: 0
-        },
+        }
     },
     {
         sequelize,

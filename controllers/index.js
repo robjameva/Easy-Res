@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Reservation, Restaurant, Table, User } = require('../models')
+const { Reservation, Restaurant, Restaurant_table, User } = require('../models')
 
 const apiRoutes = require('./api');
 // const homeRoutes = require('./home-routes');
