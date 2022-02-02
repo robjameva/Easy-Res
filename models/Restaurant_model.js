@@ -11,6 +11,10 @@ Restaurant.init(
             primaryKey: true,
             autoIncrement: true
         },
+        occupancy: {
+                type: DataTypes.INTEGER,
+                allowNull: false,
+        },
         business_name: {
             type: DataTypes.STRING,
             allowNull: false,

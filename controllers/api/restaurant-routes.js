@@ -5,13 +5,6 @@ const { Restaurant } = require('../../models');
 router.get('/', (req, res) => {
   console.log('======================');
   Restaurant.findAll({
-    attributes: [
-        'business_name',
-        'business_address',
-        'business_phone',
-        'business_hours',
-        'business_website'
-    ],
     include: [
       // Discuss what to include
     ]
@@ -28,13 +21,6 @@ router.get('/:id', (req, res) => {
     where: {
       id: req.params.id
     },
-    attributes: [
-      'business_name',
-      'business_address',
-      'business_phone',
-      'business_hours',
-      'business_website'
-    ],
     include: [
       // discuss what to include
     ]
@@ -52,12 +38,14 @@ router.get('/:id', (req, res) => {
     });
 });
 
-router.post('/', withAuth, (req, res) => {
+router.post('/', (req, res) => {
   Restaurant.create({
+      occupancy: req.body.occupancy,
       business_name: req.body.business_name,
       business_address: req.body.business_address,
       business_phone: req.body.business_phone,
-      business_hours: req.body.business_hours,
+      business_hours_open: req.body.business_hours_open,
+      business_hours_close: req.body.business_hours_close,
       business_website: req.body.business_website
   })
     .then(dbPostData => res.json(dbPostData))
@@ -67,16 +55,9 @@ router.post('/', withAuth, (req, res) => {
     });
 });
 
-router.put('/:id', withAuth, (req, res) => {
-  Restaurant.update(
-    {
-      business_name: req.body.business_name,
-      business_address: req.body.business_address,
-      business_phone: req.body.business_phone,
-      business_hours: req.body.business_hours,
-      business_website: req.body.business_website
-    },
-    {
+router.put('/:id', (req, res) => {
+    Restaurant.update(req.body, {
+    individualHooks: true,
       where: {
         id: req.params.id
       }

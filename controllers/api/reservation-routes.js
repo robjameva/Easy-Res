@@ -5,9 +5,6 @@ const { Reservation } = require('../../models');
 router.get('/', (req, res) => {
   console.log('======================');
   Reservation.findAll({
-    attributes: [
-        // .....
-    ],
     include: [
       // Discuss what to include
     ]
@@ -24,9 +21,6 @@ router.get('/:id', (req, res) => {
     where: {
       id: req.params.id
     },
-    attributes: [
-     // .....
-    ],
     include: [
       // discuss what to include
     ]
@@ -44,9 +38,13 @@ router.get('/:id', (req, res) => {
     });
 });
 
-router.post('/', withAuth, (req, res) => {
+router.post('/', (req, res) => {
   Reservation.create({
-    // table / time slot
+
+    party_size: req.body.party_size,
+    user_id: req.body.user_id,
+    time_slot: req.body.time_slot,
+    restaurant_id: req.body.restaurant_id
   })
     .then(dbPostData => res.json(dbPostData))
     .catch(err => {
@@ -55,10 +53,10 @@ router.post('/', withAuth, (req, res) => {
     });
 });
 
-router.put('/:id', withAuth, (req, res) => {
-  Reservation.update(
+router.put('/:id', (req, res) => {
+  Reservation.update(req.body,
     {
-      // table / time slot
+        individualHooks: true
     },
     {
       where: {
