@@ -1,5 +1,6 @@
 const router = require('express').Router();
-const { Restaurant } = require('../../models');
+const { Restaurant, Reservation } = require('../../models');
+const sequelize = require('../../config/connection');
 
 // get all users
 router.get('/', (req, res) => {
@@ -7,6 +8,10 @@ router.get('/', (req, res) => {
   Restaurant.findAll({
     include: [
       // Discuss what to include
+      {
+        model: Reservation,
+        attributes: ['party_size', 'time_slot']
+      }
     ]
   })
     .then(dbPostData => res.json(dbPostData))
@@ -23,6 +28,10 @@ router.get('/:id', (req, res) => {
     },
     include: [
       // discuss what to include
+      {
+        model: Reservation,
+        attributes: ['party_size', 'time_slot']
+      }
     ]
   })
     .then(dbPostData => {
@@ -40,13 +49,13 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
   Restaurant.create({
-      occupancy: req.body.occupancy,
-      business_name: req.body.business_name,
-      business_address: req.body.business_address,
-      business_phone: req.body.business_phone,
-      business_hours_open: req.body.business_hours_open,
-      business_hours_close: req.body.business_hours_close,
-      business_website: req.body.business_website
+    occupancy: req.body.occupancy,
+    business_name: req.body.business_name,
+    business_address: req.body.business_address,
+    business_phone: req.body.business_phone,
+    business_hours_open: req.body.business_hours_open,
+    business_hours_close: req.body.business_hours_close,
+    business_website: req.body.business_website
   })
     .then(dbPostData => res.json(dbPostData))
     .catch(err => {
@@ -56,12 +65,12 @@ router.post('/', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-    Restaurant.update(req.body, {
+  Restaurant.update(req.body, {
     individualHooks: true,
-      where: {
-        id: req.params.id
-      }
+    where: {
+      id: req.params.id
     }
+  }
   )
     .then(dbPostData => {
       if (!dbPostData) {

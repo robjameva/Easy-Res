@@ -1,5 +1,6 @@
 const router = require('express').Router();
-const { Reservation } = require('../../models');
+const { Reservation, Restaurant } = require('../../models');
+const sequelize = require('../../config/connection');
 
 // get all users
 router.get('/', (req, res) => {
@@ -38,14 +39,24 @@ router.get('/:id', (req, res) => {
     });
 });
 
+// NEW ROUTE
 router.get('/reserved/:restaurant_id', (req, res) => {
   Reservation.findAll({
     where: {
       restaurant_id: req.params.restaurant_id
     },
-    include: [
+    attributes: [
       // discuss what to include
-    ]
+      'time_slot',
+      [sequelize.fn('sum', sequelize.col('party_size')), 'total_occupancy'],
+    ],
+    group: ['time_slot'],
+    include: [
+      {
+        model: Restaurant,
+        attributes: ['business_name']
+      }
+    ],
   })
     .then(dbPostData => {
       if (!dbPostData) {
