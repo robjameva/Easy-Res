@@ -28,14 +28,18 @@ Restaurant.init(
             }
         },
         business_phone: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: false,
             unique: true,
             validate: {
                 notEmpty: true,
             }
         },
-        business_hours: {
+        business_hours_open: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        business_hours_close: {
             type: DataTypes.STRING,
             allowNull: false
         },

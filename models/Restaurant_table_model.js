@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize')
 const sequelize = require('../config/connection')
 
-class Table extends Model { }
+class Restaurant_table extends Model { }
 
-Table.init(
+Restaurant_table.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -17,22 +17,15 @@ Table.init(
                 model: 'restaurant',
                 key: 'id'
             }
-        },
-        // reservation_id: {
-        //     type: DataTypes.INTEGER,
-        //     references: {
-        //         model: 'reservation',
-        //         key: 'id'
-        //     }
-        // }
+        }
     },
     {
         sequelize,
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'table'
+        modelName: 'restaurant_table'
     }
 );
 
-module.exports = Table;
+module.exports = Restaurant_table;
