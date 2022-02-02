@@ -38,6 +38,28 @@ router.get('/:id', (req, res) => {
     });
 });
 
+router.get('/reserved/:restaurant_id', (req, res) => {
+  Reservation.findAll({
+    where: {
+      restaurant_id: req.params.restaurant_id
+    },
+    include: [
+      // discuss what to include
+    ]
+  })
+    .then(dbPostData => {
+      if (!dbPostData) {
+        res.status(404).json({ message: 'No post found with this id' });
+        return;
+      }
+      res.json(dbPostData);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
 router.post('/', (req, res) => {
   Reservation.create({
 
@@ -54,15 +76,12 @@ router.post('/', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-  Reservation.update(req.body,
-    {
-        individualHooks: true
-    },
-    {
-      where: {
-        id: req.params.id
-      }
+  Reservation.update(req.body, {
+    individualHooks: true,
+    where: {
+      id: req.params.id
     }
+  }
   )
     .then(dbPostData => {
       if (!dbPostData) {
