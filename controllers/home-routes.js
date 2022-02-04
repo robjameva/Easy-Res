@@ -18,4 +18,21 @@ router.get('/', (req, res) => {
         });
 });
 
+router.get('/:id', (req, res) => {
+    Restaurant.findAll()
+        .then(dbRestaurantData => {
+            // pass a single post object into the homepage template
+            // loop throguh to find the one we want
+            const restaurants = dbRestaurantData.map(restaurant => restaurant.get({ plain: true }))
+            res.render('resturant-info', {
+                restaurants
+                // loggedIn: req.session.loggedIn
+            })
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
+
 module.exports = router;

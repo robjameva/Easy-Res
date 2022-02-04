@@ -1,18 +1,13 @@
-<div class="row d-flex justify-content-center ">
-    {{!-- List of restaurants --}}
-    <div class="col-4" style="background-color: blueviolet;">
-        <h1>Restaurants</h1>
-        <ol>
-            {{#each restaurants as |restaurant|}}
-            <li>
-                <a href="/restaurant/{{restaurant.id}}">{{restaurant.business_name}}</a>
-            </li>
-            {{/each}}
-        </ol>
-    </div>
+<div class="row d-flex justify-content-between flex-wrap">
 
-    {{!-- Restaurant info pane --}}
-    <div class="col-8 d-flex justify-content-center" style="background-color: rgb(43, 226, 192);">
-        {{> restaurant-info}}
-    </div>
+    {{#each restaurants as |restaurant|}}
+    <a class="col-3 m-3" href="/restaurant/{{restaurant.id}}">
+        <div class="card ">
+            <img src="/images/pexels-marcus-herzberg-1058277.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <p class="card-text">{{restaurant.business_name}}</p>
+            </div>
+        </div>
+    </a>
+    {{/each}}
 </div>
