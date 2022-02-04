@@ -3,9 +3,10 @@
     <div class="col-4" style="background-color: blueviolet;">
         <h1>Restaurants</h1>
         <ol>
-            {{#each restaurant}}
+            {{#each formattedBusinessHours as |hour|}}
             <li>
-                <a href="/restaurant/{{restaurant.id}}">{{restaurant.business_name}}</a>
+                <a href="">{{hour}}</a>
+
             </li>
             {{/each}}
         </ol>
@@ -27,14 +28,6 @@
             </ul>
         </div>
 
-        <div>
-            <ul class="list-group">
-                <li class="list-group-item active">Reservations</li>
-                <li class="list-group-item">{{restaurant.business_address}}</li>
-                <li class="list-group-item">{{restaurant.business_phone}}</li>
-                <li class="list-group-item"><a href="{{restaurant.business_website}}"
-                        target="_blank">{{restaurant.business_website}}</a></li>
-            </ul>
-        </div>
+
     </div>
 </div>

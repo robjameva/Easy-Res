@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Reservation, Restaurant, User } = require('../models');
+const { format_business_hours } = require('../utils/helpers')
 
 router.get('/', (req, res) => {
     Restaurant.findAll()
@@ -33,10 +34,15 @@ router.get('/:id', (req, res) => {
         .then(dbRestaurantData => {
             // pass a single post object into the homepage template
             // loop throguh to find the one we want
+
+            const formattedBusinessHours = format_business_hours(dbRestaurantData.getBusinessHours())
             const restaurant = dbRestaurantData.get({ plain: true })
+
+            console.log(formattedBusinessHours)
             console.log(restaurant)
             res.render('restaurant-detail', {
-                restaurant
+                restaurant,
+                formattedBusinessHours
                 // loggedIn: req.session.loggedIn
             })
         })

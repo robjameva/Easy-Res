@@ -6,6 +6,7 @@ const exphbs = require('express-handlebars');
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const helpers = require('./utils/helpers');
+const { t } = require('tar');
 
 const PORT = process.env.PORT || 3001;
 const app = express();
