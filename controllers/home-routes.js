@@ -51,4 +51,8 @@ router.get('/:id', (req, res) => {
         });
 });
 
+router.get('/dashboard/restaurant', (req, res) => {
+    res.render('restaurant-signup')
+});
+
 module.exports = router;
