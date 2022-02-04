@@ -81,22 +81,55 @@
   .card img {
     height: 200px;
   }
+
+  .card-body {
+    background-color: rgb(157, 212, 219);
+  }
   
   header {
-    border-bottom: 1px solid #ccc;
+    border-bottom: 2px solid navy;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 1%;
+    height: 100px;
+    background-color: papayawhip;
   }
   
-  header h1 {
-    font-size: 1em;
+  header h1 a img {
+    height: 75px;
+    max-width: 150px;
+  }
+
+  header h1 a:hover {
+    opacity: 0.6;
+  }
+
+  .hero {
+    height: 500px;
+    background-image: url("/images/pexels-photo-7624446.jpg");
+    background-size: cover;
+    background-position: 80%;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .hero input {
+    width: 250px;
+  }
+
+  .main-title {
+    border-bottom: 2px solid navy;
   }
   
   main {
     flex: 1;
     padding: 2% 4%;
+    margin: 0;
+    background-color: papayawhip;
   }
   
   .btn-no-style {

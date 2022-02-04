@@ -3,16 +3,31 @@
     <div class="col-4" style="background-color: blueviolet;">
         <h1>Restaurants</h1>
         <ol>
-            {{#each restaurants as |restaurant|}}
+            {{#each formattedBusinessHours as |hour|}}
             <li>
-                <a href="/restaurant/{{restaurant.id}}">{{restaurant.business_name}}</a>
+                <a href="">{{hour}}</a>
+
             </li>
             {{/each}}
         </ol>
     </div>
 
     {{!-- Restaurant info pane --}}
-    <div class="col-8 d-flex justify-content-center" style="background-color: rgb(43, 226, 192);">
-        {{> restaurant-info}}
+    <div class="col-8 d-flex justify-content-center flex-column" style="background-color: rgb(43, 226, 192);">
+        <div>
+            <h1>{{restaurant.business_name}}</h1>
+        </div>
+
+        <div>
+            <ul class="list-group">
+                <li class="list-group-item active">Restaurant Information</li>
+                <li class="list-group-item">{{restaurant.business_address}}</li>
+                <li class="list-group-item">{{restaurant.business_phone}}</li>
+                <li class="list-group-item"><a href="{{restaurant.business_website}}"
+                        target="_blank">{{restaurant.business_website}}</a></li>
+            </ul>
+        </div>
+
+
     </div>
 </div>

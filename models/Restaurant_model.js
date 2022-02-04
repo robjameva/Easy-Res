@@ -1,7 +1,19 @@
 const { Model, DataTypes } = require('sequelize')
 const sequelize = require('../config/connection')
 
-class Restaurant extends Model { }
+class Restaurant extends Model {
+    getBusinessHours() {
+        const open = parseInt(this.business_hours_open);
+        const close = parseInt(this.business_hours_close);
+        let operatingHours = []
+
+        for (let i = open; i < close + 1; i++) {
+            operatingHours.push(i)
+        }
+
+        return operatingHours
+    }
+}
 
 Restaurant.init(
     {
@@ -12,8 +24,8 @@ Restaurant.init(
             autoIncrement: true
         },
         occupancy: {
-                type: DataTypes.INTEGER,
-                allowNull: false,
+            type: DataTypes.INTEGER,
+            allowNull: false,
         },
         business_name: {
             type: DataTypes.STRING,
