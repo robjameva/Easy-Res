@@ -53,6 +53,9 @@ Restaurant.init(
             validate: {
                 isUrl: true
             }
+        },
+        business_image: {
+            type: DataTypes.STRING
         }
     },
     {
