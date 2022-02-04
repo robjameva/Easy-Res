@@ -3,7 +3,7 @@
     <h2 class="main-title"></h2>
 
     {{#each restaurants as |restaurant|}}
-    <a class="col-lg-3 col-md-5 col-sm-10 m-3" href="/restaurant/{{restaurant.id}}">
+    <a class="col-lg-3 col-md-5 col-sm-10 m-3" href="/{{restaurant.id}}">
         <div class="card ">
             <img src="/images/{{restaurant.business_image}}" class="card-img-top" alt="...">
             <div class="card-body">
