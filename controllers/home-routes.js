@@ -32,9 +32,8 @@ router.get('/:id', (req, res) => {
         ]
     })
         .then(dbRestaurantData => {
-            // pass a single post object into the homepage template
-            // loop throguh to find the one we want
 
+            console.log(dbRestaurantData)
             const formattedBusinessHours = format_business_hours(dbRestaurantData.getBusinessHours())
             const restaurant = dbRestaurantData.get({ plain: true })
 
