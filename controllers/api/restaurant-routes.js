@@ -55,7 +55,8 @@ router.post('/', (req, res) => {
     business_phone: req.body.business_phone,
     business_hours_open: req.body.business_hours_open,
     business_hours_close: req.body.business_hours_close,
-    business_website: req.body.business_website
+    business_website: req.body.business_website,
+    business_image: req.body.business_image
   })
     .then(dbPostData => res.json(dbPostData))
     .catch(err => {
