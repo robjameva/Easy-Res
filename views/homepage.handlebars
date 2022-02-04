@@ -3,7 +3,7 @@
     {{#each restaurants as |restaurant|}}
     <a class="col-3 m-3" href="/{{restaurant.id}}">
         <div class="card ">
-            <img src="/images/pexels-marcus-herzberg-1058277.jpg" class="card-img-top" alt="...">
+            <img src="/images/{{restaurant.business_image}}" class="card-img-top" alt="...">
             <div class="card-body">
                 <p class="card-text">{{restaurant.business_name}}</p>
             </div>
