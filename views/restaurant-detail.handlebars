@@ -1,11 +1,11 @@
 <div class="row d-flex justify-content-center ">
     {{!-- List of restaurants --}}
     <div class="col-4" style="background-color: blueviolet;">
-        <h1>Restaurants</h1>
-        <ol>
-            {{#each formattedBusinessHours as |hour|}}
+        <h1>Reservations</h1>
+        <ol id="hours_list">
+            {{#each hoursObj as |hour|}}
             <li>
-                <a href="">{{hour}}</a>
+                <a id="hour_{{@key}}" href="">{{this}}</a>
 
             </li>
             {{/each}}
@@ -13,7 +13,7 @@
     </div>
 
     {{!-- Restaurant info pane --}}
-    <div class="col-8 d-flex justify-content-center flex-column" style="background-color: rgb(43, 226, 192);">
+    <div class="col-8 d-flex justify-content-center flex-column" style="background-image: url(/images/{{restaurant.business_image}});">
         <div>
             <h1>{{restaurant.business_name}}</h1>
         </div>
@@ -31,3 +31,5 @@
 
     </div>
 </div>
+
+<script src="../javascript/availability.js"></script>

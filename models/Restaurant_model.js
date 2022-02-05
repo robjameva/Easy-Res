@@ -68,6 +68,14 @@ Restaurant.init(
         },
         business_image: {
             type: DataTypes.STRING
+        },
+        user_id: {
+            type: DataTypes.INTEGER,
+            allowNull: true,
+            references: {
+                model: 'user',
+                key: 'id'
+            }
         }
     },
     {
