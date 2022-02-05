@@ -55,4 +55,8 @@ router.get('/dashboard/restaurant', (req, res) => {
     res.render('restaurant-signup')
 });
 
+router.get('/login', (req, res) => {
+    res.render('user-login')
+});
+
 module.exports = router;
