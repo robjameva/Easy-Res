@@ -47,7 +47,7 @@ router.get('/reserved/:restaurant_id', (req, res) => {
     include: [
       {
         model: Restaurant,
-        attributes: ['business_name']
+        attributes: ['business_name', 'occupancy']
       }
     ],
   })

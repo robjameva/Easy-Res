@@ -131,6 +131,11 @@
     margin: 0;
     background-color: papayawhip;
   }
+
+  .disabled-link {
+    pointer-events: none;
+    text-decoration: line-through !important
+  }
   
   .btn-no-style {
     background: none;
