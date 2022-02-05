@@ -40,6 +40,7 @@ router.get('/:id', (req, res) => {
             console.log(formattedBusinessHours)
             console.log(restaurant)
             res.render('restaurant-detail', {
+                layout: 'main-secondary',
                 restaurant,
                 formattedBusinessHours
                 // loggedIn: req.session.loggedIn

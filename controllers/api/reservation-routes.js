@@ -6,9 +6,6 @@ const sequelize = require('../../config/connection');
 router.get('/', (req, res) => {
   console.log('======================');
   Reservation.findAll({
-    include: [
-      // Discuss what to include
-    ]
   })
     .then(dbPostData => res.json(dbPostData))
     .catch(err => {
@@ -22,9 +19,6 @@ router.get('/:id', (req, res) => {
     where: {
       id: req.params.id
     },
-    include: [
-      // discuss what to include
-    ]
   })
     .then(dbPostData => {
       if (!dbPostData) {
@@ -46,7 +40,6 @@ router.get('/reserved/:restaurant_id', (req, res) => {
       restaurant_id: req.params.restaurant_id
     },
     attributes: [
-      // discuss what to include
       'time_slot',
       [sequelize.fn('sum', sequelize.col('party_size')), 'total_occupancy'],
     ],

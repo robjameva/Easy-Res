@@ -13,6 +13,15 @@ Reservation.belongsTo(User, {
     onDelete: 'SET NULL'
 });
 
+User.hasMany(Restaurant, {
+    foreignKey: 'user_id'
+});
+
+Restaurant.belongsTo(User, {
+    foreignKey: 'user_id',
+    onDelete: 'setNull'
+})
+
 Restaurant.hasMany(Reservation, {
     foreignKey: 'restaurant_id'
 });
