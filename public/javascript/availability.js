@@ -14,7 +14,7 @@ fetch(`/api/reservation/reserved/${id}`)
                     let id = slot.time_slot
                     if (slot.total_occupancy >= slot.restaurant.occupancy) {
                         let slotAtCapacity = document.getElementById(`hour_${id}`)
-                        slotAtCapacity.className = 'disabled-link';
+                        slotAtCapacity.classList = 'visually-hidden'
                     }
                 });
             })
