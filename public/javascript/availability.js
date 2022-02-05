@@ -2,8 +2,10 @@ const id = window.location.toString().split('/')[
     window.location.toString().split('/').length - 1
 ]
 
+console.log(id)
 
-fetch(`api/reservation/reserved/${id}`)
+
+fetch(`/api/reservation/reserved/${id}`)
     .then(function(response) {
         if (response.ok) {
             response.json().then(function(timeSlots) {
