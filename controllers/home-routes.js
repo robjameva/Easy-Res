@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Reservation, Restaurant, User } = require('../models');
-const { format_business_hours } = require('../utils/helpers')
+const { format_business_hours } = require('../utils/helpers');
 
 router.get('/', (req, res) => {
     Restaurant.findAll()
@@ -20,6 +20,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
+    console.log(req)
     Restaurant.findOne({
         where: {
             id: req.params.id
@@ -32,18 +33,18 @@ router.get('/:id', (req, res) => {
         ]
     })
         .then(dbRestaurantData => {
-            const formattedBusinessHours = format_business_hours(dbRestaurantData.getBusinessHours());
-            const unformattedBusinessHours = dbRestaurantData.getBusinessHours();
             const hoursObj = {};
+            const unformattedBusinessHours = dbRestaurantData.getBusinessHours()
+            const formattedBusinessHours = format_business_hours(unformattedBusinessHours);
+
             unformattedBusinessHours.forEach((key, i) => hoursObj[key] = formattedBusinessHours[i])
-            console.log(hoursObj)
 
             const restaurant = dbRestaurantData.get({ plain: true });
-            console.log(restaurant);
 
-            console.log(formattedBusinessHours);
+            // console.log(restaurant);
+
             console.log(unformattedBusinessHours);
-            console.log(restaurant);
+            // console.log(restaurant);
             res.render('restaurant-detail', {
                 restaurant,
                 hoursObj
