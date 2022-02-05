@@ -32,16 +32,21 @@ router.get('/:id', (req, res) => {
         ]
     })
         .then(dbRestaurantData => {
+            const formattedBusinessHours = format_business_hours(dbRestaurantData.getBusinessHours());
+            const unformattedBusinessHours = dbRestaurantData.getBusinessHours();
+            const hoursObj = {};
+            unformattedBusinessHours.forEach((key, i) => hoursObj[key] = formattedBusinessHours[i])
+            console.log(hoursObj)
 
-            console.log(dbRestaurantData)
-            const formattedBusinessHours = format_business_hours(dbRestaurantData.getBusinessHours())
-            const restaurant = dbRestaurantData.get({ plain: true })
+            const restaurant = dbRestaurantData.get({ plain: true });
+            console.log(restaurant);
 
-            console.log(formattedBusinessHours)
-            console.log(restaurant)
+            console.log(formattedBusinessHours);
+            console.log(unformattedBusinessHours);
+            console.log(restaurant);
             res.render('restaurant-detail', {
                 restaurant,
-                formattedBusinessHours
+                hoursObj
                 // loggedIn: req.session.loggedIn
             })
         })

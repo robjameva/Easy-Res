@@ -1,11 +1,11 @@
 <div class="row d-flex justify-content-center ">
     {{!-- List of restaurants --}}
     <div class="col-4" style="background-color: blueviolet;">
-        <h1>Restaurants</h1>
-        <ol>
-            {{#each formattedBusinessHours as |hour|}}
+        <h1>Reservations</h1>
+        <ol id="hours_list">
+            {{#each hoursObj as |hour|}}
             <li>
-                <a href="">{{hour}}</a>
+                <a id="hour_{{@key}}" href="">{{this}}</a>
 
             </li>
             {{/each}}
@@ -31,3 +31,5 @@
 
     </div>
 </div>
+
+<script src="../javascript/availability.js"></script>
