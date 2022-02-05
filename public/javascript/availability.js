@@ -1,5 +1,3 @@
-const hours_list = document.getElementById('hours_list');
-
 const id = window.location.toString().split('/')[
     window.location.toString().split('/').length - 1
 ]
@@ -20,15 +18,3 @@ fetch(`api/reservation/reserved/${id}`)
             })
         }
     })
-
-
-
-
-
-// if (response.ok) {
-//     document.location.replace('/user-dashboard/');
-// } else {
-//     alert(response.statusText);
-// }
-
-console.log(hours_list)
