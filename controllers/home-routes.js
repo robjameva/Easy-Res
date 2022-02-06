@@ -9,8 +9,8 @@ router.get('/', (req, res) => {
             // pass a single post object into the homepage template
             const restaurants = dbRestaurantData.map(restaurant => restaurant.get({ plain: true }))
             res.render('homepage', {
-                restaurants
-                // loggedIn: req.session.loggedIn
+                restaurants,
+                loggedIn: req.session.loggedIn
             })
         })
         .catch(err => {

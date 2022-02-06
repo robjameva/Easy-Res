@@ -1,21 +1,21 @@
 async function userLoginFormHandler(event) {
     event.preventDefault();
-  
+
     const email = document.querySelector('#email_login').value.trim();
     const password = document.querySelector('#password_login').value.trim();
-  
+    
     if (email && password) {
       const response = await fetch('/api/users/login', {
-        method: 'post',
+        method: 'POST',
         body: JSON.stringify({
           email,
           password
         }),
         headers: { 'Content-Type': 'application/json' }
       });
-  
+      
       if (response.ok) {
-        document.location.replace('/dashboard/');
+        document.location.replace('/');
       } else {
         alert(response.statusText);
       }
@@ -34,7 +34,7 @@ async function userSignupFormHandler(event) {
   
     if (first_name && last_name && username && email && phone_number && password ) {
       const response = await fetch('/api/users', {
-        method: 'post',
+        method: 'POST',
         body: JSON.stringify({
           first_name,
           last_name,
@@ -70,7 +70,7 @@ async function restaurantSignupFormHandler(event) {
   
     if (business_name && business_email && business_password && business_occupancy && business_address && business_phone && business_hours_open && business_hours_close && business_website && business_image ) {
       const response = await fetch('/api/restaurant', {
-        method: 'post',
+        method: 'POST',
         body: JSON.stringify({
           business_name,
           business_email,
@@ -96,4 +96,4 @@ async function restaurantSignupFormHandler(event) {
   
 document.querySelector('.user_login_form').addEventListener('submit', userLoginFormHandler);
 document.querySelector('.user_signup_form').addEventListener('submit', userSignupFormHandler);
-document.querySelector('.restaurant_signup_form').addEventListener('submit', restaurantSignupFormHandler);
+// document.querySelector('.restaurant_signup_form').addEventListener('submit', restaurantSignupFormHandler);
