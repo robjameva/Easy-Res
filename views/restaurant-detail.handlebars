@@ -1,7 +1,14 @@
 <div class="row d-flex justify-content-center ">
     {{!-- List of restaurants --}}
     <div class="col-4">
-        <h1>Reservations</h1>
+        <h2>Available Reservations</h2>
+        <div>
+            <form>
+                <label for="party_size">Party Size</label>
+                <input type="number" id="party_size" />
+            </form>
+        </div>
+
         <div id="res-btns" class="d-flex flex-wrap gap-2">
             {{#each hoursObj as |hour|}}
             <button id="hour_{{@key}}"" type=" click" class="btn btn-light btn-sm">{{this}}</button>
