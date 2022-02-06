@@ -1,0 +1,27 @@
+{{#each restaurants as |restaurant|}}
+{{!-- {{#if hasRestaurant}} --}}
+<div class="show-restaurant col-8 d-flex justify-content-center flex-column">
+    <div>
+        <h1>Owned Restaurant's</h1>
+    </div>
+
+    <div>
+        <ul >
+            <li><h2>{{restaurant.business_name}}</h2></li>
+            <li>{{restaurant.business_address}}</li>
+            <li>{{restaurant.business_phone}}</li>
+            <li><a href="{{restaurant.business_website}}"
+                    target="_blank">{{restaurant.business_website}}</a>
+            <li>
+                <br>
+            <li><a id="edit-restaurant" href="owner/edit/1">Edit Restaurant</a></li>
+
+        </ul>
+    </div>
+</div>
+{{!-- {{/if}}  --}}
+{{/each}}
+
+<div id="add-restaurant">
+<a href="/restaurant-signup"><button id="primary-button">Add Restaurant</button></a>
+</div>

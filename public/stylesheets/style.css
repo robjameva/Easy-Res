@@ -10,9 +10,9 @@
     color: #333;
   }
   
-  a {
-    text-decoration: none !important;
-    color: black !important;
+  nav a {
+    text-decoration: none;
+    color: navy;
     font-weight: bold;
     transition: color .1s;
   }
@@ -21,23 +21,8 @@
     list-style: none;
   }
   
-  a:hover {
-    color: #3486eb;
-  }
-  
-  button {
-    background-color: #225ca3;
-    border: 0;
-    padding: 1%;
-    color: white;
-    font-weight: bold;
-    transition: background-color .1s;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-  
-  button:hover {
-    background-color: #3486eb;
+  nav a:hover {
+    opacity: .7;
   }
   
   .post-list {
@@ -78,12 +63,22 @@
     flex-direction: column;
   }
 
+  #restaurant-card {
+    text-decoration: none;
+  }
+
   .card img {
     height: 200px;
   }
 
   .card-body {
     background-color: rgb(157, 212, 219);
+  }
+
+  .card p {
+    font-size: 120%;
+    font-weight: bold;
+    color: navy;
   }
   
   header {
@@ -143,16 +138,15 @@
     padding: 0;
     cursor: pointer;
     text-decoration: none;
-    color: #225ca3;
+    color: navy;
     font-size: 100%;
     font-weight: bold;
-    transition: color .1s;
     margin-left: 16px;
   }
   
   .btn-no-style:hover {
     background: none;
-    color: #3486eb;
+    opacity: .7;;
   }
   
   .delete-post-btn {
@@ -173,46 +167,70 @@
     font-size: 90%;
     color: #7d7d7d;
   }
+
+  #reservation-info {
+    padding-top: 2%;
+    color: navy;
+    font-weight: bold;
+  }
+
+  #reservation-info li a, 
+  .show-restaurant li a {
+    color: navy;
+    text-decoration: none;
+  }
+
+  #reservation-info li a:hover, 
+  .show-restaurant li a:hover {
+   opacity: .4;
+  }
+ 
+  #reservationImg-wrapper img {
+    height: 250px;
+    width: 250px;
+  }
+
+  #edit-reservation, #edit-restaurant {
+    color: rgb(61, 95, 245);
+    text-decoration: none;
+  }
+
+  #edit-reservation:hover {
+   opacity: .7;
+  }
+
+  .edit_user_form, .edit_restaurant_form {
+    font-weight: bold;
+  }
+
+  #primary-button {
+    border-radius: 10px;
+    background-color: rgb(157, 212, 219);
+    color: navy;
+    box-shadow: 3px 3px 3px rgb(90, 92, 91);
+  }
+
+  #primary-button:hover {
+    opacity: .8;
+  }
+
+  .show-restaurant {
+    font-weight: bold;
+    color: navy;
+  }
+
+  .show-restaurant h1 {
+    margin-bottom: 5%;
+    border-bottom: 2px solid rgb(157, 212, 219) ;
+  }
+
+  #add-restaurant {
+    margin-top: 5%;
+  }
   
   .edit-link {
     display: block;
     margin: -1.5% 0 2% 0;
-  }
-  
-  .upvote-btn {
-    background-color: #197d0f;
-    transition: background-color .1s;
-  }
-  
-  .upvote-btn:hover {
-    background-color: #1f9c13;
-  }
-  
-  .comment-form {
-    margin-bottom: 5%;
-  }
-  
-  .comment {
-    padding: 1%;
-    margin-bottom: 1%;
-  }
-  
-  .comment:nth-child(odd) {
-    background-color: #fff5eb;
-  }
-  
-  .comment .meta {
-    font-size: 90%;
-    margin-bottom: .5%;
-    opacity: .6;
-  }
-  
-  .new-post-form input {
-    width: 300px;
-  }
-  
-  .edit-post-form {
-    margin-bottom: 5%;
   }
   
   footer {
@@ -220,5 +238,7 @@
     display: flex;
     justify-content: center;
     padding: 1%;
-    font-size: 110%;
+    font-size: 125%;
+    font-weight: bold;
+    background-color: rgb(157, 212, 219);
   }
