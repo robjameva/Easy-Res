@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
       }
     ]
   })
-    .then(dbPostData => res.json(dbPostData))
+    .then(dbRestaurantData => res.json(dbRestaurantData))
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
@@ -34,12 +34,12 @@ router.get('/:id', (req, res) => {
       }
     ]
   })
-    .then(dbPostData => {
-      if (!dbPostData) {
-        res.status(404).json({ message: 'No post found with this id' });
+    .then(dbRestaurantData => {
+      if (!dbRestaurantData) {
+        res.status(404).json({ message: 'No restaurant found with this id' });
         return;
       }
-      res.json(dbPostData);
+      res.json(dbRestaurantData);
     })
     .catch(err => {
       console.log(err);
@@ -48,6 +48,7 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
+  console.log(req.body);
   Restaurant.create({
     occupancy: req.body.occupancy,
     business_name: req.body.business_name,
@@ -58,7 +59,7 @@ router.post('/', (req, res) => {
     business_website: req.body.business_website,
     business_image: req.body.business_image
   })
-    .then(dbPostData => res.json(dbPostData))
+    .then(dbRestaurantData => res.json(dbRestaurantData))
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
@@ -66,19 +67,31 @@ router.post('/', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-  Restaurant.update(req.body, {
-    individualHooks: true,
-    where: {
-      id: req.params.id
+console.log(req.body)
+  Restaurant.update(
+    {
+      occupancy: req.body.occupancy,
+      business_name: req.body.business_name,
+      business_address: req.body.business_address,
+      business_phone: req.body.business_phone,
+      business_hours_open: req.body.business_hours_open,
+      business_hours_close: req.body.business_hours_close,
+      business_website: req.body.business_website,
+      business_image: req.body.business_image
+    },
+    {
+      where: {
+        id: req.params.id
+      }
     }
-  }
   )
-    .then(dbPostData => {
-      if (!dbPostData) {
+    .then(dbRestaurantData => {
+      if (!dbRestaurantData) {
         res.status(404).json({ message: 'No restaurant found with this id' });
         return;
       }
-      res.json(dbPostData);
+      console.log(dbRestaurantData);
+      res.json(dbRestaurantData);
     })
     .catch(err => {
       console.log(err);
@@ -93,12 +106,12 @@ router.delete('/:id', (req, res) => {
       id: req.params.id
     }
   })
-    .then(dbPostData => {
-      if (!dbPostData) {
+    .then(dbRestaurantData => {
+      if (!dbRestaurantData) {
         res.status(404).json({ message: 'No restaurant found with this id' });
         return;
       }
-      res.json(dbPostData);
+      res.json(dbRestaurantData);
     })
     .catch(err => {
       console.log(err);

@@ -18,7 +18,6 @@ router.get('/', (req, res) => {
     })
         .then(dbRestaurantData => {
             const restaurants = dbRestaurantData.map(restaurant => restaurant.get({ plain: true }));
-            console.log(restaurants);
             res.render('owner', {
                 layout: 'main-secondary',
                 restaurants,
