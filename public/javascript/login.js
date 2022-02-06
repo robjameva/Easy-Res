@@ -1,8 +1,8 @@
 async function userLoginFormHandler(event) {
     event.preventDefault();
   
-    const email = document.querySelector('#email-login').value.trim();
-    const password = document.querySelector('#password-login').value.trim();
+    const email = document.querySelector('#email_login').value.trim();
+    const password = document.querySelector('#password_login').value.trim();
   
     if (email && password) {
       const response = await fetch('/api/users/login', {
@@ -15,7 +15,7 @@ async function userLoginFormHandler(event) {
       });
   
       if (response.ok) {
-        document.location.replace('/user-dashboard/');
+        document.location.replace('/dashboard/');
       } else {
         alert(response.statusText);
       }
@@ -24,24 +24,30 @@ async function userLoginFormHandler(event) {
 
 async function userSignupFormHandler(event) {
     event.preventDefault();
+
+    const first_name = document.querySelector('#first_name_signup').value.trim();
+    const last_name = document.querySelector('#last_name_signup').value.trim();  
+    const username = document.querySelector('#username_signup').value.trim();
+    const email = document.querySelector('#email_signup').value.trim();
+    const phone_number = document.querySelector('#phone_number').value.trim();
+    const password = document.querySelector('#password_signup').value.trim();
   
-    const username = document.querySelector('#username-signup').value.trim();
-    const email = document.querySelector('#email-signup').value.trim();
-    const password = document.querySelector('#password-signup').value.trim();
-  
-    if (username && email && password) {
+    if (first_name && last_name && username && email && phone_number && password ) {
       const response = await fetch('/api/users', {
         method: 'post',
         body: JSON.stringify({
+          first_name,
+          last_name,
           username,
           email,
+          phone_number,
           password
         }),
         headers: { 'Content-Type': 'application/json' }
       });
   
       if (response.ok) {
-        document.location.replace('/user-dashboard/');
+        document.location.replace('/dashboard');
       } else {
         alert(response.statusText);
       }
@@ -88,6 +94,6 @@ async function restaurantSignupFormHandler(event) {
     }
 }
   
-document.querySelector('.user-login-form').addEventListener('submit', userLoginFormHandler);
-document.querySelector('.user-signup-form').addEventListener('submit', userSignupFormHandler);
-document.querySelector('.restaurant-signup-form').addEventListener('submit', restaurantSignupFormHandler);
+document.querySelector('.user_login_form').addEventListener('submit', userLoginFormHandler);
+document.querySelector('.user_signup_form').addEventListener('submit', userSignupFormHandler);
+document.querySelector('.restaurant_signup_form').addEventListener('submit', restaurantSignupFormHandler);
