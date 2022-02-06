@@ -66,7 +66,6 @@ router.get('/reserved/:restaurant_id', (req, res) => {
 
 router.post('/', (req, res) => {
   Reservation.create({
-
     user_id: req.session.user_id,
     party_size: req.body.party_size,
     time_slot: req.body.time_slot,

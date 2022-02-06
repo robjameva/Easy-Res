@@ -1,3 +1,4 @@
+
 async function handleSubmitReservation(event) {
     event.preventDefault();
     const timeSlotBtnEL = event.target
@@ -20,10 +21,32 @@ async function handleSubmitReservation(event) {
     });
 
     if (response.ok) {
-        document.location.replace(`/restaurant/${id}`);
+        console.log('confirmed')
     } else {
         alert(response.statusText);
     }
 }
 
+
+async function handleClose(event) {
+    event.preventDefault();
+    document.location.replace(`/restaurant/${id}`);
+}
+
+async function handleMainMenu(event) {
+    event.preventDefault();
+    document.location.replace('/');
+}
+
 document.getElementById('res-btns').addEventListener('click', handleSubmitReservation);
+document.getElementById('close').addEventListener('click', handleClose);
+document.getElementById('main-menu').addEventListener('click', handleMainMenu);
+
+
+
+
+
+
+
+
+

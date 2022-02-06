@@ -40,15 +40,14 @@ router.get('/restaurant/:id', (req, res) => {
 
             const restaurant = dbRestaurantData.get({ plain: true });
 
-            // console.log(restaurant);
+            console.log(req.session)
 
-            console.log(unformattedBusinessHours);
-            // console.log(restaurant);
             res.render('restaurant-detail', {
                 layout: 'main-secondary',
                 restaurant,
-                hoursObj
-                // loggedIn: req.session.loggedIn
+                hoursObj,
+                loggedIn: req.session.loggedIn,
+                phoneNum: req.session.phone_number
             })
         })
         .catch(err => {
