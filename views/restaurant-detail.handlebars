@@ -1,5 +1,6 @@
 <div class="row d-flex justify-content-center ">
     {{!-- List of restaurants --}}
+<<<<<<< HEAD
     <div class="col-4" style="background-color: blueviolet;">
         <h2>Available Reservations</h2>
         <div>
@@ -8,6 +9,14 @@
                 <input type="number" id="party_size" />
             </form>
         </div>
+=======
+    <div class="col-4">
+        <h1>Reservations</h1>
+        <ol id="hours_list">
+            {{#each hoursObj as |hour|}}
+            <li>
+                <a id="hour_{{@key}}" href="">{{this}}</a>
+>>>>>>> develop
 
         <div id="res-btns" class="d-flex flex-wrap gap-2">
             {{#each hoursObj as |hour|}}

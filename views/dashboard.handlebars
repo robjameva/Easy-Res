@@ -1,49 +1,37 @@
-<h1>test</h1>
-
-
-{{!-- {{#if hasReservation}}
-<div id="show-reservation" class="col-8 d-flex justify-content-center flex-column"
-    style="background-image: url(/images/{{restaurant.business_image}});">
+{{#each reservations as |reservation|}}
+{{!-- {{#if hasReservation}} --}}
+<h1>{{reservations.business_name}}</h1>
+<div id="show-reservation" class="row d-flex justify-content-center flex-wrap">
     <div>
-        <h1>{{restaurant.business_name}}</h1>
-        <h2 id="no-reservation"></h2>
+        <h2 id="no-reservations"></h2>
     </div>
 
-    <div>
-        <ul class="list-group">
-            <li class="list-group-item active">Reservation Information</li>
-            <li class="list-group-item">{{restaurant.business_address}}</li>
-            <li class="list-group-item">{{restaurant.business_phone}}</li>
-            <li class="list-group-item"><a href="{{restaurant.business_website}}"
-                    target="_blank">{{restaurant.business_website}}</a>
+    <div id="reservationImg-wrapper" class="col-lg-4 col-md-4 col-sm-8">
+        <img src="/images/{{reservation.restaurant.business_image}}" alt="">
+    </div>
+
+    <div id="reservation-info" class="col-lg-4 col-md-4 col-sm-8">
+        <ul>
             <li>
-            <li class="list-group-item">{{Reservation.party_size}}</li>
-            <li class="list-group-item">{{Reservation.time_slot}}</li>
-        </ul>
-    </div>
-
-
-</div>
-{{/if}}
-
-
-{{#if hasRestaurant}}
-<div id="show-restaurant" class="col-8 d-flex justify-content-center flex-column"
-    style="background-image: url(/images/{{restaurant.business_image}});">
-    <div>
-        <h1>Owned Restaurant's</h1>
-    </div>
-
-    <div>
-        <ul class="list-group">
-            <li class="list-group-item active">{{restaurant.business_name}}</li>
-            <li class="list-group-item">{{restaurant.business_address}}</li>
-            <li class="list-group-item">{{restaurant.business_phone}}</li>
-            <li class="list-group-item"><a href="{{restaurant.business_website}}"
-                    target="_blank">{{restaurant.business_website}}</a>
+                <h2>{{reservation.restaurant.business_name}}</h2>
+            </li>
+            <li>{{reservation.restaurant.business_address}}</li>
+            <li>{{reservation.restaurant.business_phone}}</li>
+            <li><a href="{{reservation.restaurant.business_website}}"
+                    target="_blank">{{reservation.restaurant.business_website}}</a>
             <li>
-
+            <li>Party size: {{reservation.party_size}}</li>
+            <li>Reservation Time: {{reservation.time_slot}}</li>
+            <br>
+            <a id="edit-reservation" href="/dashboard/edit_reservation/1">Edit Reservation</a>
         </ul>
     </div>
 </div>
-{{/if}} --}}
+{{!-- {{/if}} --}}
+{{/each}}
+
+<div class="btn-wrapper">
+    <a href="/owner"><button id="primary-button">View My Restaurant's</button></a>
+    <br>
+    <a href="/dashboard/edit_user/1"><button id="primary-button">Edit User</button></a>
+</div>

@@ -1,29 +1,25 @@
 <form class="edit_user_form">
   <div>
     <label for="first_name_edit">first name:</label>
-    <input type="text" id="first_name_edit" />
+    <input type="text" id="first_name_edit" value="{{users.first_name}}" />
   </div>
   <div>
     <label for="last_name_edit">last name:</label>
-    <input type="text" id="last_name_edit" />
+    <input type="text" id="last_name_edit" value="{{users.last_name}}" />
   </div>
   <div>
     <label for="username_edit">username:</label>
-    <input type="text" id="username_edit" />
+    <input type="text" id="username_edit" value="{{users.username}}" />
   </div>
   <div>
     <label for="user_email_edit">email:</label>
-    <input type="text" id="email_edit" />
+    <input type="text" id="email_edit" value="{{users.email}}" />
   </div>
   <div>
     <label for="user_password_edit">password:</label>
-    <input type="password" id="password_edit" />
+    <input type="password" id="password_edit" value="{{users.password}}" />
   </div>
   <div>
-    <label for="user_password_edit">password:</label>
-    <input type="password" id="password_edit" />
-  </div>
-  <div>
-    <button type="submit">Submit Changes</button>
+    <button id="primary-button" type="submit">Submit Changes</button>
   </div>
 </form>
