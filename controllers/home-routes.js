@@ -9,8 +9,8 @@ router.get('/', (req, res) => {
             // pass a single post object into the homepage template
             const restaurants = dbRestaurantData.map(restaurant => restaurant.get({ plain: true }))
             res.render('homepage', {
-                restaurants
-                // loggedIn: req.session.loggedIn
+                restaurants,
+                loggedIn: req.session.loggedIn
             })
         })
         .catch(err => {
@@ -59,6 +59,10 @@ router.get('/restaurant/:id', (req, res) => {
 
 router.get('/dashboard/restaurant', (req, res) => {
     res.render('restaurant-signup')
+});
+
+router.get('/login', (req, res) => {
+    res.render('user-login')
 });
 
 module.exports = router;
