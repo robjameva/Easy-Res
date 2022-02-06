@@ -214,10 +214,30 @@
     background-color: rgb(157, 212, 219);
     color: navy;
     box-shadow: 3px 3px 3px rgb(90, 92, 91);
+    min-width: 100px;
+    font-weight: bold;
   }
 
   #primary-button:hover {
     opacity: .8;
+  }
+
+  #delete-button {
+    border-radius: 10px;
+    background-color: rgb(230, 64, 59);
+    color: black;
+    box-shadow: 3px 3px 3px rgb(90, 92, 91);
+    min-width: 100px;
+    font-weight: bold;
+  }
+
+  #delete-button:hover {
+    opacity: .8;
+  }
+
+  .user_login_form, .user_signup_form, .restaurant-signup-form {
+    font-weight: bold;
+    padding-bottom: 3%;
   }
 
   .btn-wrapper {
