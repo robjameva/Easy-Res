@@ -86,6 +86,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
     padding: 0 1%;
     height: 100px;
     background-color: papayawhip;
@@ -174,6 +175,10 @@
     font-weight: bold;
   }
 
+  #owner-info {
+    padding-top: 3%;
+  }
+
   #reservation-info li a, 
   .show-restaurant li a {
     color: navy;
@@ -214,6 +219,14 @@
     opacity: .8;
   }
 
+  .btn-wrapper {
+    margin: 3%;
+  }
+
+  .btn-wrapper button {
+    margin: 3px;
+  }
+
   .show-restaurant {
     font-weight: bold;
     color: navy;
@@ -221,7 +234,9 @@
 
   .show-restaurant h1 {
     margin-bottom: 5%;
-    border-bottom: 2px solid rgb(157, 212, 219) ;
+    border-bottom: 2px solid rgb(157, 212, 219);
+    margin-right: none;
+    padding-right: none;
   }
 
   #add-restaurant {

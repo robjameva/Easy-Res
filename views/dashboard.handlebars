@@ -1,15 +1,20 @@
-
 {{#each reservations as |reservation|}}
- {{!-- {{#if hasReservation}} --}}
- <h1>{{reservations.business_name}}</h1>
-<div id="show-reservation" class="row d-flex justify-content-center flex-wrap"> 
+{{!-- {{#if hasReservation}} --}}
+<h1>{{reservations.business_name}}</h1>
+<div id="show-reservation" class="row d-flex justify-content-center flex-wrap">
     <div>
         <h2 id="no-reservations"></h2>
     </div>
 
-    <div id="reservation-info" class="col-4">
+    <div id="reservationImg-wrapper" class="col-lg-4 col-md-4 col-sm-8">
+        <img src="/images/{{reservation.restaurant.business_image}}" alt="">
+    </div>
+
+    <div id="reservation-info" class="col-lg-4 col-md-4 col-sm-8">
         <ul>
-            <li><h2>{{reservation.restaurant.business_name}}</h2></li>  
+            <li>
+                <h2>{{reservation.restaurant.business_name}}</h2>
+            </li>
             <li>{{reservation.restaurant.business_address}}</li>
             <li>{{reservation.restaurant.business_phone}}</li>
             <li><a href="{{reservation.restaurant.business_website}}"
@@ -21,14 +26,12 @@
             <a id="edit-reservation" href="/dashboard/edit_reservation/1">Edit Reservation</a>
         </ul>
     </div>
-
-    <div id="reservationImg-wrapper" class="col-3">
-        <img src="/images/{{reservation.restaurant.business_image}}" alt="">
-    </div>
-</div> 
+</div>
 {{!-- {{/if}} --}}
 {{/each}}
 
-
-<a href="/dashboard/edit_user/1"><button>Edit User</button></a>
-<a href="/owner"><button>View My Restaurant's</button></a>
+<div class="btn-wrapper">
+    <a href="/owner"><button id="primary-button">View My Restaurant's</button></a>
+    <br>
+    <a href="/dashboard/edit_user/1"><button id="primary-button">Edit User</button></a>
+</div>
