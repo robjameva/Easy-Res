@@ -27,7 +27,7 @@ async function handleSubmitReservation(event) {
     });
 
     if (response.ok) {
-        // document.location.replace('/dashboard');
+        document.location.replace(`/restaurant/${id}`);
         console.log('You Reserved a slot!!!')
     } else {
         alert(response.statusText);
