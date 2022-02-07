@@ -40,8 +40,6 @@ router.get('/restaurant/:id', (req, res) => {
 
             const restaurant = dbRestaurantData.get({ plain: true });
 
-            console.log(req.session)
-
             res.render('restaurant-detail', {
                 layout: 'main-secondary',
                 restaurant,
