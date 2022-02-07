@@ -13,8 +13,9 @@ async function getNames() {
         if (response.ok) {
             response.json().then(function (data) {
                 for (var i = 0; i < data.length; i++) {
-                    namesArr.push(data[i].business_name)
+                    namesArr.push(data[i].business_name.toLowerCase())
                 }
+                console.log(namesArr)
             });
         } else {
             alert("")
@@ -25,7 +26,7 @@ async function getNames() {
 
 autocomplete.oninput = function () {
     let results = [];
-    const userInput = this.value;
+    const userInput = this.value.toLowerCase();
     resultsHTML.innerHTML = "";
     if (userInput.length > 0) {
         results = getResults(userInput);
@@ -82,5 +83,5 @@ async function searchSubmitHandler(event) {
 
 document.querySelector('.search-submit-form').addEventListener('submit', searchSubmitHandler);
 
-window.onload = getNames;
+getNames();
 

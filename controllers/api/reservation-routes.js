@@ -1,6 +1,12 @@
 const router = require('express').Router();
 const { Reservation, Restaurant } = require('../../models');
 const sequelize = require('../../config/connection');
+const { format_business_hours } = require('../../utils/helpers');
+
+const accountSid = process.env.TWILIO_ACCOUNT_SID;
+const authToken = process.env.TWILIO_AUTH_TOKEN;
+const client = require('twilio')(accountSid, authToken);
+require('dotenv').config();
 
 // get all users
 router.get('/', (req, res) => {
@@ -66,13 +72,37 @@ router.get('/reserved/:restaurant_id', (req, res) => {
 
 router.post('/', (req, res) => {
   Reservation.create({
-
+    user_id: req.session.user_id,
     party_size: req.body.party_size,
-    user_id: req.body.user_id,
     time_slot: req.body.time_slot,
     restaurant_id: req.body.restaurant_id
   })
-    .then(dbPostData => res.json(dbPostData))
+    .then(dbPostData => {
+      res.json(dbPostData)
+
+      const reservedTimeSlot = [parseInt(dbPostData.dataValues.time_slot)];
+      const formattedHour = format_business_hours(reservedTimeSlot);
+      const partySize = dbPostData.dataValues.party_size;
+
+      const getBusinessName = id => {
+        Restaurant.findOne({
+          where: {
+            id: id
+          }
+        })
+          .then(dbBusinessName => {
+            client.messages
+              .create({
+                body:
+                  `Your table is confirmed at ${dbBusinessName.dataValues.business_name} for ${partySize} people at ${formattedHour}.`,
+                from: '+17853776055',
+                to: `+1${req.session.phone_number}`
+              })
+              .then(message => console.log(message.sid));
+          })
+      }
+      getBusinessName(dbPostData.dataValues.restaurant_id)
+    })
     .catch(err => {
       console.log(err);
       res.status(500).json(err);

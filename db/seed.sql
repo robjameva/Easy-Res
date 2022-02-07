@@ -1,7 +1,7 @@
 INSERT INTO user (first_name, last_name, username, password, email, phone_number)
 VALUES
-('Robert', 'Evanik','robjameva', 'password123', 'rob.evanik@gmail.com', '973-919-5256'),
-('Chris', 'McCormack', 'cdm83092', 'password', 'chrismack135@gmail.com', '603-340-7223');
+('Robert', 'Evanik','robjameva', 'password123', 'rob.evanik@gmail.com', '9739195256'),
+('Chris', 'McCormack', 'cdm83092', 'password', 'chrismack135@gmail.com', '6033407223');
 
 
 INSERT INTO restaurant (business_name, occupancy, business_address, business_phone, business_hours_open, business_hours_close, business_website, business_image, user_id)

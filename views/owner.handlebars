@@ -1,5 +1,4 @@
 {{#each restaurants as |restaurant|}}
-{{!-- {{#if hasRestaurant}} --}}
 <div class="show-restaurant row d-flex justify-content-start flex-wrap">
 
     <h1>{{restaurant.user.first_name}}'s Restaurant's</h1>
@@ -14,7 +13,7 @@
             <li><a href="{{restaurant.business_website}}" target="_blank">{{restaurant.business_website}}</a>
             <li>
                 <br>
-            <li><a id="edit-restaurant" href="/owner/edit/1">Edit Restaurant</a></li>
+            <li><a id="edit-restaurant" href="/owner/edit/{{restaurant.id}}">Edit Restaurant</a></li>
 
         </ul>
     </div>
@@ -23,7 +22,6 @@
         <img src="/images/{{restaurant.business_image}}" alt="">
     </div> --}}
 </div>
-{{!-- {{/if}} --}}
 {{/each}}
 
 <div id="add-restaurant">

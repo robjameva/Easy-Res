@@ -25,13 +25,8 @@
   nav a:hover {
     opacity: .7;
   }
-  
-  .post-list {
-    margin: 0;
-    padding: 0;
-  }
-  
-  textarea, input {
+   
+  input {
     padding: .5%;
     border-radius: 5px;
     border: 1px solid #ccc;
@@ -40,11 +35,6 @@
   textarea:focus, input:focus {
     outline: none;
     border: 1px solid #3486eb;
-  }
-  
-  textarea {
-    min-width: 40%;
-    min-height: 100px;
   }
   
   form > div {
@@ -160,26 +150,7 @@
     background: none;
     opacity: .7;;
   }
-  
-  .delete-post-btn {
-    background-color: #d41414;
-  }
-  
-  .delete-post-btn:hover {
-    background-color: #ff643d;
-  }
-  
-  .post {
-    margin-bottom: 2%;
-    line-height: 150%;
-  }
-  
-  .post .title span {
-    font-style: italic;
-    font-size: 90%;
-    color: #7d7d7d;
-  }
-
+   
   #reservation-info {
     padding-top: 2%;
     color: navy;
