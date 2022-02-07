@@ -2,15 +2,24 @@ let namesArr = [];
 
 const autocomplete = document.querySelector("#autocomplete");
 const resultsHTML = document.querySelector("#results");
-// const dataInput = document.querySelector(".search-results");
 
-function getNames() {
-    const list = document.querySelector('.search-results').getElementsByTagName('li');
-
-    for (var i = 0; i < list.length; i++) {
-        var arrValue = list[i].innerHTML;
-        namesArr.push(arrValue);
-    }
+async function getNames() {
+    const response = await fetch(`/api/restaurant`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (data) {
+                for (var i = 0; i < data.length; i++) {
+                    namesArr.push(data[i].business_name)
+                }
+            });
+        } else {
+            alert("")
+        }
+    });
 }
 
 
