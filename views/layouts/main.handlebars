@@ -27,10 +27,11 @@
             </nav>
         </header>
         <section class="hero">
-            <div id="auto-search">
+            <form class="search-submit-form" id="auto-search">
                 <input type="text" id="autocomplete" placeholder="Search By Restaurant">
                 <ul id="results"></ul>
-            </div>
+                <button class="visually-hidden" type="submit">Search</button>
+            </form>
         </section>
         <main>
             {{{ body }}}
