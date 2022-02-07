@@ -1,0 +1,35 @@
+<div class="row d-flex justify-content-center ">
+    {{!-- List of restaurants --}}
+    <div class="col-4">
+        <h1>Reservations</h1>
+        <ol id="hours_list">
+            {{#each hoursObj as |hour|}}
+            <li>
+                <a id="hour_{{@key}}" href="">{{this}}</a>
+
+            </li>
+            {{/each}}
+        </ol>
+    </div>
+
+    {{!-- Restaurant info pane --}}
+    <div class="col-8 d-flex justify-content-center flex-column" style="background-image: url(/images/{{restaurant.business_image}});">
+        <div>
+            <h1>{{restaurant.business_name}}</h1>
+        </div>
+
+        <div>
+            <ul>
+                <li>Restaurant Information</li>
+                <li>{{restaurant.business_address}}</li>
+                <li>{{restaurant.business_phone}}</li>
+                <li><a href="{{restaurant.business_website}}"
+                        target="_blank">{{restaurant.business_website}}</a></li>
+            </ul>
+        </div>
+
+
+    </div>
+</div>
+
+<script src="../javascript/availability.js"></script>
