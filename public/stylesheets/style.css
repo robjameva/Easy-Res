@@ -118,6 +118,16 @@
     width: 250px;
   }
 
+  #auto-search {
+    display: block;
+  }
+
+  #results {
+    color: black;
+    background-color: white;
+    border-radius: 0px 0px 10px 10px;
+  }
+
   .main-title {
     border-bottom: 2px solid navy;
   }
