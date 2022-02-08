@@ -1,10 +1,7 @@
+{{#if reservations}}
 {{#each reservations as |reservation|}}
-{{!-- {{#if hasReservation}} --}}
 <h1>{{reservations.business_name}}</h1>
 <div id="show-reservation" class="row d-flex justify-content-center flex-wrap">
-    <div>
-        <h2 id="no-reservations"></h2>
-    </div>
 
     <div id="reservationImg-wrapper" class="col-lg-4 col-md-4 col-sm-8">
         <img src="/images/{{reservation.restaurant.business_image}}" alt="">
@@ -27,11 +24,17 @@
         </ul>
     </div>
 </div>
-{{!-- {{/if}} --}}
 {{/each}}
+
+{{else}}
+<div>
+    <h2 id="no-reservations">No reservation's scheduled</h2>
+</div>
+{{/if}}
+
 
 <div class="btn-wrapper">
     <a href="/owner"><button id="primary-button">View My Restaurant's</button></a>
     <br>
-    <a href="/dashboard/edit_user/1"><button id="primary-button">Edit User</button></a>
+    <a href="/dashboard/edit_user/{{user_id}}"><button id="primary-button">Edit User</button></a>
 </div>

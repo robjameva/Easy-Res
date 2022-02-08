@@ -2,14 +2,13 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Restaurant, Reservation, User } = require('../models');
 const withAuth = require('../utils/auth');
+const hasReservation = require('../utils/hasReservation')
 
 
 router.get('/', (req, res) => {
-    console.log(req.session);
-    console.log('======================');
     Reservation.findAll({
         where: {
-             user_id: 1
+            user_id: req.session.user_id
         },
         attributes: [
             'party_size',
@@ -24,9 +23,11 @@ router.get('/', (req, res) => {
     })
         .then(dbReservationData => {
             const reservations = dbReservationData.map(reservation => reservation.get({ plain: true }));
+            console.log(reservations)
             res.render('dashboard', {
                 layout: 'main-secondary',
                 reservations,
+                user_id: req.session.user_id
                 // loggedIn: true
             });
         })
