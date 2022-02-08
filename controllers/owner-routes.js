@@ -21,7 +21,8 @@ router.get('/', (req, res) => {
             res.render('owner', {
                 layout: 'main-secondary',
                 restaurants,
-                // loggedIn: true
+                first_name: req.session.first_name,
+                loggedIn: true
             });
         })
         .catch(err => {
@@ -39,7 +40,8 @@ router.get('/edit/:id', /*withAuth,*/(req, res) => {
                 res.render('edit-restaurant', {
                     layout: 'main-secondary',
                     restaurants,
-                    // loggedIn: true
+                    first_name: req.session.first_name,
+                    loggedIn: true
                 });
             } else {
                 res.status(404).end();

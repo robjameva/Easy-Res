@@ -56,7 +56,8 @@ router.get('/edit_reservation/:id', (req, res) => {
                 res.render('edit-reservation', {
                     layout: 'main-secondary',
                     reservations,
-                    // loggedIn: true
+                    first_name: req.session.first_name,
+                    loggedIn: true
                 });
             } else {
                 res.status(404).end();
@@ -77,7 +78,8 @@ router.get('/edit_user/:id', (req, res) => {
                 res.render('edit-user', {
                     layout: 'main-secondary',
                     users,
-                    // loggedIn: true
+                    first_name: req.session.first_name,
+                    loggedIn: true
                 });
             } else {
                 res.status(404).end();
