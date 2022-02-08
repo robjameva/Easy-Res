@@ -10,7 +10,8 @@ router.get('/', (req, res) => {
             const restaurants = dbRestaurantData.map(restaurant => restaurant.get({ plain: true }))
             res.render('homepage', {
                 restaurants,
-                loggedIn: req.session.loggedIn
+                loggedIn: req.session.loggedIn,
+                first_name: req.session.first_name
             })
         })
         .catch(err => {
@@ -45,7 +46,8 @@ router.get('/restaurant/:id', (req, res) => {
                 restaurant,
                 hoursObj,
                 loggedIn: req.session.loggedIn,
-                phoneNum: req.session.phone_number
+                phoneNum: req.session.phone_number,
+                first_name: req.session.first_name
             })
         })
         .catch(err => {
