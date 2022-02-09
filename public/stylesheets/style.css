@@ -341,3 +341,36 @@
     font-weight: bold;
     background-color: rgb(157, 212, 219);
   }
+
+  @media screen and (max-width: 575px) {
+    
+    #welcome-banner {
+      display: none;
+    }
+
+    #restaurant-detail {
+      margin: 5%;
+      background-image: none !important;
+      background-color: papayawhip !important;
+      border: none;
+      box-shadow: none;
+      height: 300px;
+
+    }
+
+    .info-wrapper {
+      height: 100% !important;
+      width: 100% !important;
+    }
+
+    #hours {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap; 
+    }
+
+    #res-hours input {
+      width: 80px;
+      height: 40px;
+    }
+  }
