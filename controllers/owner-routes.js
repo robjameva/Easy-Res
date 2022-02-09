@@ -3,7 +3,7 @@ const sequelize = require('../config/connection');
 const { Restaurant, User } = require('../models');
 const withAuth = require('../utils/auth');
 
-router.get('/', (req, res) => {
+router.get('/', withAuth, (req, res) => {
     console.log('======================');
     Restaurant.findAll({
         where: {
@@ -32,7 +32,7 @@ router.get('/', (req, res) => {
         });
 });
 
-router.get('/edit/:id', /*withAuth,*/(req, res) => {
+router.get('/edit/:id', withAuth, (req, res) => {
     Restaurant.findByPk(req.params.id, {})
         .then(dbRestaurantData => {
             if (dbRestaurantData) {
@@ -53,7 +53,7 @@ router.get('/edit/:id', /*withAuth,*/(req, res) => {
         });
 });
 
-router.get('/restaurant_signup', (req, res) => {
+router.get('/restaurant_signup', withAuth, (req, res) => {
     res.render('restaurant-signup', {
         layout: 'main-secondary',
         first_name: req.session.first_name,
