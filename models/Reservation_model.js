@@ -2,7 +2,19 @@ const { Model, DataTypes } = require('sequelize')
 const sequelize = require('../config/connection')
 
 
-class Reservation extends Model { }
+class Reservation extends Model {
+    getBusinessHours() {
+        const open = parseInt(this.restaurant.business_hours_open);
+        const close = parseInt(this.restaurant.business_hours_close);
+        let operatingHours = []
+
+        for (let i = open; i < close + 1; i++) {
+            operatingHours.push(i)
+        }
+
+        return operatingHours
+    }
+}
 
 Reservation.init(
     {

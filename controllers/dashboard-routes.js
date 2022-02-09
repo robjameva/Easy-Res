@@ -2,6 +2,7 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Restaurant, Reservation, User } = require('../models');
 const withAuth = require('../utils/auth');
+const { format_business_hours } = require('../utils/helpers');
 
 
 router.get('/', (req, res) => {
@@ -53,11 +54,18 @@ router.get('/edit_reservation/:id', (req, res) => {
     })
         .then(dbReservationData => {
             if (dbReservationData) {
+                const hoursObj = {};
+                const unformattedBusinessHours = dbReservationData.getBusinessHours()
+                const formattedBusinessHours = format_business_hours(unformattedBusinessHours);
+                unformattedBusinessHours.forEach((key, i) => hoursObj[key] = formattedBusinessHours[i])
+
                 const reservations = dbReservationData.get({ plain: true });
 
                 res.render('edit-reservation', {
                     layout: 'main-secondary',
                     reservations,
+                    hoursObj,
+                    phoneNum: req.session.phone_number,
                     first_name: req.session.first_name,
                     loggedIn: true
                 });
