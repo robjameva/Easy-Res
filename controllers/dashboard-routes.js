@@ -10,6 +10,7 @@ router.get('/', (req, res) => {
             user_id: req.session.user_id
         },
         attributes: [
+            'id',
             'party_size',
             'time_slot',
         ],
@@ -39,6 +40,7 @@ router.get('/', (req, res) => {
 router.get('/edit_reservation/:id', (req, res) => {
     Reservation.findByPk(req.params.id, {
         attributes: [
+            'id',
             'party_size',
             'time_slot',
         ],
