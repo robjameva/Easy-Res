@@ -2,6 +2,7 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Reservation, Restaurant, User } = require('../models');
 const { format_business_hours } = require('../utils/helpers');
+const withAuth = require('../utils/auth');
 
 router.get('/', (req, res) => {
     Restaurant.findAll()
@@ -20,7 +21,7 @@ router.get('/', (req, res) => {
         });
 });
 
-router.get('/restaurant/:id', (req, res) => {
+router.get('/restaurant/:id', withAuth, (req, res) => {
     Restaurant.findOne({
         where: {
             id: req.params.id
