@@ -3,10 +3,10 @@ const { Reservation, Restaurant } = require('../../models');
 const sequelize = require('../../config/connection');
 const { format_business_hours } = require('../../utils/helpers');
 
-// const accountSid = process.env.TWILIO_ACCOUNT_SID;
-// const authToken = process.env.TWILIO_AUTH_TOKEN;
-// const client = require('twilio')(accountSid, authToken);
-// require('dotenv').config();
+const accountSid = process.env.TWILIO_ACCOUNT_SID;
+const authToken = process.env.TWILIO_AUTH_TOKEN;
+const client = require('twilio')(accountSid, authToken);
+require('dotenv').config();
 
 // get all users
 router.get('/', (req, res) => {
@@ -101,7 +101,7 @@ router.post('/', (req, res) => {
               .then(message => console.log(message.sid));
           })
       }
-      // getBusinessName(dbPostData.dataValues.restaurant_id)
+      getBusinessName(dbPostData.dataValues.restaurant_id)
     })
     .catch(err => {
       console.log(err);
