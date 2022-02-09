@@ -22,12 +22,12 @@ router.get('/', (req, res) => {
     })
         .then(dbReservationData => {
             const reservations = dbReservationData.map(reservation => reservation.get({ plain: true }));
-            console.log(reservations)
             res.render('dashboard', {
                 layout: 'main-secondary',
                 reservations,
-                user_id: req.session.user_id
-                // loggedIn: true
+                user_id: req.session.user_id,
+                first_name: req.session.first_name,
+                loggedIn: true
             });
         })
         .catch(err => {
@@ -56,7 +56,8 @@ router.get('/edit_reservation/:id', (req, res) => {
                 res.render('edit-reservation', {
                     layout: 'main-secondary',
                     reservations,
-                    // loggedIn: true
+                    first_name: req.session.first_name,
+                    loggedIn: true
                 });
             } else {
                 res.status(404).end();
@@ -77,7 +78,8 @@ router.get('/edit_user/:id', (req, res) => {
                 res.render('edit-user', {
                     layout: 'main-secondary',
                     users,
-                    // loggedIn: true
+                    first_name: req.session.first_name,
+                    loggedIn: true
                 });
             } else {
                 res.status(404).end();
