@@ -5,7 +5,7 @@ const withAuth = require('../utils/auth');
 const { format_business_hours } = require('../utils/helpers');
 
 
-router.get('/', (req, res) => {
+router.get('/', withAuth, (req, res) => {
     Reservation.findAll({
         where: {
             user_id: req.session.user_id
@@ -38,7 +38,7 @@ router.get('/', (req, res) => {
         });
 });
 
-router.get('/edit_reservation/:id', (req, res) => {
+router.get('/edit_reservation/:id', withAuth, (req, res) => {
     Reservation.findByPk(req.params.id, {
         attributes: [
             'id',
@@ -78,7 +78,7 @@ router.get('/edit_reservation/:id', (req, res) => {
         });
 });
 
-router.get('/edit_user/:id', (req, res) => {
+router.get('/edit_user/:id', withAuth, (req, res) => {
     User.findByPk(req.params.id, {
     })
         .then(dbUserData => {
