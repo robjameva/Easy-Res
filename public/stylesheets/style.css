@@ -118,6 +118,83 @@
     border-radius: 0px 0px 10px 10px;
   }
 
+  #res-btns button {
+    border-radius: 10px;
+    background-color: rgb(157, 212, 219);
+    color: navy;
+    box-shadow: 3px 3px 3px rgb(90, 92, 91);
+    font-weight: bold;
+    width: 200px;
+  }
+
+  #res-hours {
+    color: navy;
+    font-weight: bold;
+  }
+
+  #res-hours form {
+    padding: 2% 2% 2% 0%;
+    display: flex;
+  }
+
+  #res-hours label {
+    padding: 2%;
+  }
+
+  #res-hours input {
+    width: 100px;
+  }
+
+  #res-btns button:hover {
+    opacity: .7;
+  }
+
+  #restaurant-detail {
+    height: 600px;
+    background-size: cover;
+    background-position: 80%;
+    background-attachment: fixed;
+    color: navy;
+    border-radius: 10px;
+    border: 2px solid black;
+    box-shadow: 5px 5px 5px rgb(90, 92, 91);
+  }
+
+  .info-wrapper {
+    width: 50%;
+    height: 50%;
+    background-color: papayawhip;
+    border: 2px solid black;
+    border-radius: 10px;
+  }
+
+  .info-wrapper h1 {
+    padding: 3% 3% 3% 8%;
+    margin-top: 12%;
+  }
+
+  .info-wrapper li {
+    font-weight: bold;
+  }
+
+  .modal-header {
+    background-color: rgb(157, 212, 219);
+    color: black;
+    font-weight: bold;
+  }
+
+  .modal-body {
+    background-color: papayawhip;
+    color: navy;
+    font-weight: bold;
+  }
+
+  .modal-footer {
+    background-color: rgb(157, 212, 219);
+    color: black;
+    font-weight: bold;
+  }
+
   .main-title {
     border-bottom: 2px solid navy;
   }
