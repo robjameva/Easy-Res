@@ -15,7 +15,6 @@ async function getNames() {
                 for (var i = 0; i < data.length; i++) {
                     namesArr.push(data[i].business_name.toLowerCase())
                 }
-                console.log(namesArr)
             });
         } else {
             alert("")
@@ -55,8 +54,6 @@ resultsHTML.onclick = function (event) {
 
 async function searchSubmitHandler(event) {
     event.preventDefault();
-    console.log('test')
-
     const businessName = document.querySelector('input[id="autocomplete"]').value.trim();
 
     const response = await fetch(`/api/restaurant`, {
@@ -67,9 +64,9 @@ async function searchSubmitHandler(event) {
     }).then(function (response) {
         if (response.ok) {
             response.json().then(function (data) {
-                console.log(data[0].business_name);
                 for (var i = 0; i < data.length; i++) {
-                    if(data[i].business_name === businessName) {
+                    if( data[i].business_name === businessName) {
+                        console.log('test replace')
                         const id = data[i].id;
                         document.location.replace(`/restaurant/${id}`);
                     }
