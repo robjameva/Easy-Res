@@ -92,6 +92,11 @@
     opacity: 0.6;
   }
 
+  #welcome-banner, footer {
+    color: navy;
+    font-weight: bolder;
+  }
+
   .hero {
     height: 500px;
     background-image: url("/images/pexels-photo-7624446.jpg");
