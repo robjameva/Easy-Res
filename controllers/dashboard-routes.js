@@ -24,6 +24,9 @@ router.get('/', withAuth, (req, res) => {
     })
         .then(dbReservationData => {
             const reservations = dbReservationData.map(reservation => reservation.get({ plain: true }));
+
+            reservations.forEach(reservation => reservation.time_slot = format_business_hours([reservation.time_slot]))
+
             res.render('dashboard', {
                 layout: 'main-secondary',
                 reservations,
