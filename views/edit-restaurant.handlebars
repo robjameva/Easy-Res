@@ -5,7 +5,7 @@
   </div>
   <div>
     <label for="business_occupancy_edit">occupancy:</label>
-    <input type="number" id="business_occupancy_edit" value="{{restaurants.occupancy}}" />
+    <input type="number" id="business_occupancy_edit" min="1" value="{{restaurants.occupancy}}" />
   </div>
   <div>
     <label for="business_address_edit">address:</label>
@@ -17,15 +17,15 @@
   </div>
   <div>
     <label for="business_hours_open_edit">when do you open?:</label>
-    <input type="number" id="business_hours_open_edit" value="{{restaurants.business_hours_open}}" />
+    <input type="number" id="business_hours_open_edit" min="1" value="{{restaurants.business_hours_open}}" />
   </div>
   <div>
     <label for="business_hours_close_edit">when do you close?:</label>
-    <input type="number" id="business_hours_close_edit" value="{{restaurants.business_hours_close}}" />
+    <input type="number" id="business_hours_close_edit" min="1" value="{{restaurants.business_hours_close}}" />
   </div>
   <div>
     <label for="business_website_edit">website:</label>
-    <input type="url" id="business_website_edit" value="{{restaurants.business_website}}" />
+    <input type="text" id="business_website_edit" value="{{restaurants.business_website}}" />
   </div>
   <div>
     <label for="business_image_edit">image:</label>

@@ -57,7 +57,9 @@ router.post('/', (req, res) => {
     business_hours_open: req.body.business_hours_open,
     business_hours_close: req.body.business_hours_close,
     business_website: req.body.business_website,
-    business_image: req.body.business_image
+    business_image: req.body.business_image,
+    user_id: req.session.user_id
+
   })
     .then(dbRestaurantData => res.json(dbRestaurantData))
     .catch(err => {
@@ -67,7 +69,7 @@ router.post('/', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-console.log(req.body)
+  console.log(req.body)
   Restaurant.update(
     {
       occupancy: req.body.occupancy,

@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
     console.log('======================');
     Restaurant.findAll({
         where: {
-            user_id: 1
+            user_id: req.session.user_id
         },
         include: [
             {
@@ -18,6 +18,7 @@ router.get('/', (req, res) => {
     })
         .then(dbRestaurantData => {
             const restaurants = dbRestaurantData.map(restaurant => restaurant.get({ plain: true }));
+            console.log(restaurants)
             res.render('owner', {
                 layout: 'main-secondary',
                 restaurants,
@@ -54,7 +55,9 @@ router.get('/edit/:id', /*withAuth,*/(req, res) => {
 
 router.get('/restaurant_signup', (req, res) => {
     res.render('restaurant-signup', {
-        layout: 'main-secondary'
+        layout: 'main-secondary',
+        first_name: req.session.first_name,
+        loggedIn: true
     })
 });
 

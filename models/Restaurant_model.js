@@ -30,7 +30,6 @@ Restaurant.init(
         business_name: {
             type: DataTypes.STRING,
             allowNull: false,
-            unique: true,
             validate: {
                 notEmpty: true,
             }
@@ -38,7 +37,6 @@ Restaurant.init(
         business_address: {
             type: DataTypes.STRING,
             allowNull: false,
-            unique: true,
             validate: {
                 notEmpty: true,
             }
@@ -46,7 +44,6 @@ Restaurant.init(
         business_phone: {
             type: DataTypes.STRING,
             allowNull: false,
-            unique: true,
             validate: {
                 notEmpty: true,
             }

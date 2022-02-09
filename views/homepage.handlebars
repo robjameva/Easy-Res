@@ -5,7 +5,7 @@
     {{#each restaurants as |restaurant|}}
     <a id="restaurant-card" class="col-lg-3 col-md-5 col-sm-10 m-3" href="/restaurant/{{restaurant.id}}">
         <div class="card ">
-            <img src="/images/{{restaurant.business_image}}" class="card-img-top" alt="...">
+            <img src="{{restaurant.business_image}}" class="card-img-top" alt="...">
             <div class="card-body d-flex justify-content-center">
                 <p class="card-text">{{restaurant.business_name}}</p>
             </div>
