@@ -58,11 +58,15 @@ router.get('/restaurant/:id', withAuth, (req, res) => {
 });
 
 router.get('/dashboard/restaurant', (req, res) => {
-    res.render('restaurant-signup')
+    res.render('restaurant-signup', {
+        layout: 'main-secondary'
+    })
 });
 
 router.get('/login', (req, res) => {
-    res.render('user-login')
+    res.render('user-login', {
+        layout: 'main-secondary'
+    })
 });
 
 module.exports = router;
