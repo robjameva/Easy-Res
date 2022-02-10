@@ -1,17 +1,29 @@
 # Easy Res
 
-## Description
-Easy Res is used to easily make reservations at your favorite restaurants. All you need to do is go to their page on the website and select your time and how many people are in your party. It will then send you a text conformation letting you know the reservation has been made. 
-
 ## Screenshot
-![screenshot](public/images/Easy-res-screenshot.PNG)
-
 ![screenshot](public/images/easy-res-screenshot2.PNG)
 
-## Link to site
+## Reserve Your Table Today!
 https://easy-res.herokuapp.com/
 
-## Credit
-Robert Evanik: https://github.com/robjameva <br>
-Chris Mccormack https://github.com/CmcCormack92 <br>
-Sean Gillespie https://github.com/seene3
+## Description
+Easy Res is an online restaurant reservation service similar to Open Table or Resy. Users can find their favortie restaurants on Easy Res, select their reservation time, and how many people are in their party. Easy Res will send a text conformation letting the user know their reservation has been confirmed. 
+
+## Technologies Used
+* Twilio API 
+* Node.js
+* Express.js
+* Express-Sessions
+* Sequelize 
+* Bcrypt 
+* Handlebars 
+* MySQL2
+* Bootstrap
+* CSS
+* Heroku
+* JawsDB
+
+## Contributers
+* Robert Evanik: https://github.com/robjameva <br>
+* Chris Mccormack https://github.com/CmcCormack92 <br>
+* Sean Gillespie https://github.com/seene3
