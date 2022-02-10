@@ -1,4 +1,4 @@
-# Easy-Res
+# Easy Res
 
 ## Description
 Easy Res is used to easily make reservations at your favorite restaurants. All you need to do is go to their page on the website and select your time and how many people are in your party. It will then send you a text conformation letting you know the reservation has been made. 
