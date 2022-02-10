@@ -123,6 +123,29 @@ router.put('/:id', (req, res) => {
         return;
       }
       res.json(dbPostData);
+
+      const reservedTimeSlot = [parseInt(dbPostData[1][0].dataValues.time_slot)];
+      const formattedHour = format_business_hours(reservedTimeSlot);
+      const partySize = dbPostData[1][0].dataValues.party_size;
+
+      const getBusinessName = id => {
+        Restaurant.findOne({
+          where: {
+            id: id
+          }
+        })
+          .then(dbBusinessName => {
+            client.messages
+              .create({
+                body:
+                  `Your table is confirmed at ${dbBusinessName.dataValues.business_name} for ${partySize} people at ${formattedHour}.`,
+                from: '+17853776055',
+                to: `+1${req.session.phone_number}`
+              })
+              .then(message => console.log(message.sid));
+          })
+      }
+      getBusinessName(dbPostData[1][0].dataValues.restaurant_id)
     })
     .catch(err => {
       console.log(err);
