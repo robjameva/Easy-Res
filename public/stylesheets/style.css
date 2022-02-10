@@ -44,6 +44,10 @@
   form label {
     display: block;
   }
+
+  #search {
+    width: 100%;
+  }
   
   .wrapper {
     width: 100%;

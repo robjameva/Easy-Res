@@ -9,9 +9,9 @@ async function getNames() {
         headers: {
             'Content-Type': 'application/json'
         }
-    }).then(function (response) {
+    }).then(function(response) {
         if (response.ok) {
-            response.json().then(function (data) {
+            response.json().then(function(data) {
                 for (var i = 0; i < data.length; i++) {
                     namesArr.push(data[i].business_name.toLowerCase())
                 }
@@ -23,7 +23,7 @@ async function getNames() {
 }
 
 
-autocomplete.oninput = function () {
+autocomplete.oninput = function() {
     let results = [];
     const userInput = this.value.toLowerCase();
     resultsHTML.innerHTML = "";
@@ -46,7 +46,7 @@ function getResults(input) {
     return results;
 }
 
-resultsHTML.onclick = function (event) {
+resultsHTML.onclick = function(event) {
     const setValue = event.target.innerText;
     autocomplete.value = setValue;
     this.innerHTML = "";
@@ -61,12 +61,11 @@ async function searchSubmitHandler(event) {
         headers: {
             'Content-Type': 'application/json'
         }
-    }).then(function (response) {
+    }).then(function(response) {
         if (response.ok) {
-            response.json().then(function (data) {
+            response.json().then(function(data) {
                 for (var i = 0; i < data.length; i++) {
-                    if( data[i].business_name === businessName) {
-                        console.log('test replace')
+                    if (data[i].business_name.toLowerCase() == businessName) {
                         const id = data[i].id;
                         document.location.replace(`/restaurant/${id}`);
                     }
