@@ -286,12 +286,12 @@
   }
 
   #delete-button {
-    border-radius: 10px;
-    background-color: rgb(230, 64, 59);
-    color: black;
-    box-shadow: 3px 3px 3px rgb(90, 92, 91);
-    min-width: 100px;
-    font-weight: bold;
+    border-radius: 10px !important;
+    background-color: rgb(230, 64, 59) !important;
+    color: black !important;
+    box-shadow: 3px 3px 3px rgb(90, 92, 91) !important;
+    min-width: 100px !important;
+    font-weight: bold !important;
   }
 
   #delete-button:hover {
@@ -340,6 +340,7 @@
     font-size: 125%;
     font-weight: bold;
     background-color: rgb(157, 212, 219);
+    width: 100% !important;
   }
 
   @media screen and (max-width: 575px) {

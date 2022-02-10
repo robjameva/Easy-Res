@@ -14,6 +14,7 @@
             <button id="hour_{{@key}}" type="click" class="btn btn-light btn-sm" data-bs-toggle="modal"
                 data-bs-target="#exampleModal">{{this}}</button>
             {{/each}}
+            <button id="delete-button" class="delete-reservation-btn">Delete Reservation</button>
         </div>
     </div>
 
@@ -41,7 +42,6 @@
     </div>
 </div>
 
-<button id="delete-button" class="delete-reservation-btn">Delete Reservation</button>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
