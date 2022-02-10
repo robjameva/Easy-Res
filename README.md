@@ -1,6 +1,5 @@
 # Easy Res
 
-## Screenshot
 ![screenshot](public/images/easy-res-screenshot2.PNG)
 
 ## Reserve Your Table Today!
