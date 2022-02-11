@@ -1,6 +1,16 @@
 #! /app/.heroku/node/bin/node
+const { Reservation, Restaurant } = require('../models');
+const sequelize = require('../config/connection');
+
 function wipeReservations() {
-    console.log('wiped');
+    Reservation.destroy({
+        where: {},
+        truncate: true
+    })
+        .then(dbPostData => {
+            console.log(dbPostData);
+            console.log('wiped');
+        })
 }
 wipeReservations();
 process.exit();
