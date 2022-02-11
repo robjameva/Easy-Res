@@ -84,7 +84,6 @@ router.post('/', (req, res) => {
       const formattedHour = format_business_hours(reservedTimeSlot);
       const partySize = dbPostData.dataValues.party_size;
 
-      console.log('Inside create res')
       const getBusinessName = id => {
         Restaurant.findOne({
           where: {
@@ -92,7 +91,7 @@ router.post('/', (req, res) => {
           }
         })
           .then(dbBusinessName => {
-            console.log('Inside send text')
+            console.log(req.session.phone_number)
             client.messages
               .create({
                 body:
