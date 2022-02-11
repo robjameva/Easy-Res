@@ -1,0 +1,6 @@
+#! /app/.heroku/node/bin/node
+function wipeReservations() {
+    console.log('wiped');
+}
+wipeReservations();
+process.exit();
