@@ -1,7 +1,10 @@
+const deleteBtn = document.getElementById('delete-button')
 
 async function handleSubmitReservation(event) {
     event.preventDefault();
+
     const timeSlotBtnEL = event.target
+    if (timeSlotBtnEL == deleteBtn) return
 
     const party_size = document.getElementById('party_size').value;
     const time_slot = timeSlotBtnEL.getAttribute('id').split('_')[1]
