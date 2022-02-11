@@ -1,5 +1,5 @@
-const { Reservation, Restaurant } = require('./models');
-const sequelize = require('./config/connection');
+const { Reservation, Restaurant } = require('../models');
+const sequelize = require('../config/connection');
 
 function wipeReservations() {
     Reservation.destroy({
