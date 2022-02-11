@@ -91,14 +91,12 @@ router.post('/', (req, res) => {
           }
         })
           .then(dbBusinessName => {
-            console.log(req.session.phone_number)
             client.messages
               .create({
                 body:
                   `Your table is confirmed at ${dbBusinessName.dataValues.business_name} for ${partySize} people at ${formattedHour}.`,
                 from: '+17853776055',
-                // to: `+1${req.session.phone_number}`
-                to: `+12016552192`
+                to: `+1${req.session.phone_number}`
               })
               .then(message => console.log(message.sid));
           })
