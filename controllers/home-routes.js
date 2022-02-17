@@ -57,7 +57,7 @@ router.get('/restaurant/:id', withAuth, (req, res) => {
         });
 });
 
-router.get('/dashboard/restaurant', (req, res) => {
+router.get('/dashboard/restaurant', withAuth, (req, res) => {
     res.render('restaurant-signup', {
         layout: 'main-secondary'
     })
